@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Social preview card (1200x630)</title>
+<style>
+  :root { --cranberry: #8f2430; --cranberry-deep: #721c26; --gold: #d6a84b; --gold-soft: #f0d99a; --snow: #fbf8f1; --pine: #1f4d36; --pine-deep: #123023; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    color: var(--snow);
+    background: radial-gradient(120% 110% at 50% 0%, #2b6244 0%, var(--pine) 55%, var(--pine-deep) 100%);
+  }
+  .snow {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle, rgb(255 255 255 / 0.9) 0 3px, transparent 4px),
+      radial-gradient(circle, rgb(255 255 255 / 0.7) 0 2px, transparent 3px),
+      radial-gradient(circle, rgb(255 255 255 / 0.5) 0 1.5px, transparent 2.5px);
+    background-size: 230px 200px, 310px 260px, 170px 340px;
+    background-position: 20px 30px, 140px 110px, 60px 60px;
+    -webkit-mask-image: linear-gradient(90deg, #000 0 46%, transparent 50%);
+    mask-image: linear-gradient(90deg, #000 0 46%, transparent 50%);
+  }
+  .lights { position: absolute; left: 0; top: 0; width: 1200px; height: 64px; }
+
+  .ornament { position: absolute; left: 130px; top: 150px; width: 380px; height: 380px; }
+  .ornament::before { content: ""; position: absolute; left: 50%; bottom: calc(100% + 20px); width: 3px; height: 96px; background: var(--gold-soft); transform: translateX(-50%); }
+  .cap {
+    position: absolute; top: -26px; left: 50%; z-index: 2; width: 64px; height: 36px; transform: translateX(-50%);
+    border-radius: 10px 10px 4px 4px; background: linear-gradient(90deg, #b88a2e, #f3d584 40%, #b88a2e); box-shadow: 0 3px 6px rgb(0 0 0 / 0.35);
+  }
+  .cap::before { content: ""; position: absolute; top: -16px; left: 50%; width: 22px; height: 22px; transform: translateX(-50%); border: 4px solid #e3bb5f; border-radius: 50%; }
+  .bauble {
+    position: relative; width: 100%; height: 100%; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    border: 11px solid var(--gold);
+    background: radial-gradient(circle at 32% 26%, #e9606a 0%, var(--cranberry) 48%, var(--cranberry-deep) 100%);
+    box-shadow: 0 0 0 6px var(--cranberry-deep), inset 0 -34px 56px rgb(0 0 0 / 0.25), 0 40px 60px -10px rgb(0 0 0 / 0.55);
+  }
+  .bauble::before { content: ""; position: absolute; top: 9%; left: 14%; width: 34%; height: 20%; border-radius: 50%; background: rgb(255 255 255 / 0.28); transform: rotate(-32deg); }
+  .label { font: 700 22px/1.4 system-ui, -apple-system, sans-serif; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-soft); }
+  .date { font-size: 112px; font-weight: 700; line-height: 1.05; }
+  .date i { font-style: normal; color: var(--gold-soft); margin: 0 4px; }
+
+  .copy { position: absolute; left: 590px; top: 0; bottom: 0; width: 570px; display: flex; flex-direction: column; justify-content: center; }
+  .eyebrow { font: 700 24px/1.4 system-ui, -apple-system, sans-serif; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-soft); }
+  h1 { font-size: 112px; font-weight: 700; line-height: 1.05; margin-top: 8px; }
+  .script { font-family: "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive; font-size: 76px; line-height: 1.15; color: var(--gold-soft); margin-top: 4px; }
+  .due { font: 400 32px/1.35 system-ui, -apple-system, sans-serif; margin-top: 26px; color: #e7efe3; }
+</style>
+</head>
+<body>
+  <div class="snow"></div>
+  <svg class="lights" viewBox="0 0 1200 64" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="bulbs" width="120" height="64" patternUnits="userSpaceOnUse">
+        <path d="M-2 6 Q60 36 122 6" fill="none" stroke="#0c2418" stroke-width="3"/>
+        <rect x="27" y="12" width="6" height="6" fill="#0c2418"/><ellipse cx="30" cy="27" rx="6" ry="9" fill="#e0443f"/>
+        <rect x="57" y="17" width="6" height="6" fill="#0c2418"/><ellipse cx="60" cy="32" rx="6" ry="9" fill="#f2c14e"/>
+        <rect x="87" y="12" width="6" height="6" fill="#0c2418"/><ellipse cx="90" cy="27" rx="6" ry="9" fill="#6cc08b"/>
+      </pattern>
+    </defs>
+    <rect width="1200" height="64" fill="url(#bulbs)"/>
+  </svg>
+
+  <div class="ornament">
+    <span class="cap"></span>
+    <div class="bauble">
+      <span class="label" id="l1"></span>
+      <span class="date" id="big"></span>
+      <span class="label" id="l2"></span>
+    </div>
+  </div>
+
+  <div class="copy">
+    <p class="eyebrow">Our first baby girl</p>
+    <h1>Baby Brown</h1>
+    <p class="script" id="script"></p>
+    <p class="due" id="line"></p>
+  </div>
+  <script>
+    // Pick the wording with ?v=teaser | labor | born
+    const V = {
+      teaser: { l1: 'Due', big: '12<i>/</i>17', l2: '2026', script: 'is on the way', line: 'Due December 17, 2026' },
+      labor:  { l1: 'Our girl', big: 'Soon', l2: 'Stay tuned', script: 'is on her way', line: 'We\u2019ll update this page when she\u2019s here' },
+      born:   { l1: 'She\u2019s', big: 'Here!', l2: 'Hello, world', script: 'is here!', line: 'Baby, Mom, and Dad are happy and healthy' }
+    };
+    const v = V[new URLSearchParams(location.search).get('v')] || V.teaser;
+    document.getElementById('l1').textContent = v.l1;
+    document.getElementById('big').innerHTML = v.big;
+    document.getElementById('l2').textContent = v.l2;
+    document.getElementById('script').textContent = v.script;
+    document.getElementById('line').textContent = v.line;
+  </script>
+</body>
+</html>
