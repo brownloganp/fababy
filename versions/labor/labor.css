@@ -109,3 +109,6 @@
 .history__list li { position: relative; padding: 0.15rem 0 0.7rem 0.9rem; font-size: 0.95rem; line-height: 1.45; color: #e7efe3; }
 .history__list li::before { content: ""; position: absolute; left: -1.45rem; top: 0.55rem; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--gold-soft); }
 .history__list time { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gold-soft); }
+
+/* Longer ornament wording ("The baby decided / today / is the day") */
+.hero--labor .bauble__label { font-size: 0.78rem; letter-spacing: 0.18em; }
