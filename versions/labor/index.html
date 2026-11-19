@@ -32,6 +32,8 @@
   <meta name="apple-mobile-web-app-title" content="Baby Brown">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/labor.css">
+  <script src="/app.js" defer></script>
 </head>
 <body>
   <svg width="0" height="0" hidden aria-hidden="true" focusable="false">
@@ -46,8 +48,15 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <div class="statusbar" role="status">
+    <span class="pulse" aria-hidden="true"></span>
+    <span class="statusbar__label">Status update</span>
+    <span class="statusbar__sep" aria-hidden="true">&middot;</span>
+    <span class="statusbar__text">Labor in progress</span>
+  </div>
+
   <main id="main">
-    <header class="hero">
+    <header class="hero hero--labor">
       <svg class="lights" aria-hidden="true" focusable="false">
         <defs>
           <pattern id="bulbs" width="96" height="44" patternUnits="userSpaceOnUse">
@@ -69,39 +78,54 @@
       <div class="ornament" aria-hidden="true">
         <span class="ornament__cap"></span>
         <div class="bauble">
-          <span class="bauble__label">Our girl</span>
-          <span class="bauble__date">Soon</span>
-          <span class="bauble__label">Stay tuned</span>
+          <span class="bauble__label">Right now</span>
+          <span class="bauble__date">Labor</span>
+          <span class="bauble__label">In progress</span>
         </div>
       </div>
 
       <p class="joy">Our little girl is on her way</p>
       <p class="intro">Our first baby girl</p>
       <h1>Baby Brown</h1>
-      <p class="due">Lucy has started labor</p>
-      <p class="countdown">We'll update this page as soon as she's here.</p>
+
+      <div class="update">
+        <p class="update__kicker"><span class="pulse" aria-hidden="true"></span> Latest update</p>
+        <p class="update__headline">We're checked in!</p>
+        <p class="update__note">We're checked into the hospital and getting settled. Everyone is doing well.</p>
+        <p class="update__stamp">
+          Last updated
+          <!-- TO UPDATE: change the datetime value below (use your local time and offset). app.js shows it in each visitor's own time zone. -->
+          <time id="updated" datetime="2026-11-19T10:14:00-05:00">Nov 19, 2026 at 10:14 AM ET</time>
+        </p>
+      </div>
+
+      <!-- EARLIER UPDATES: when you post a new update, move the old "Latest update" here as a new <li> at the top. -->
+      <div class="history">
+        <p class="history__title">Earlier updates</p>
+        <ol class="history__list">
+          <li>
+            <time class="stamp" datetime="2026-11-19T10:08:00-05:00">Nov 19, 2026 at 10:08 AM ET</time>
+            <span>Lucy has started labor.</span>
+          </li>
+        </ol>
+      </div>
 
       <svg class="drift" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <path d="M0 42 C 220 92 460 2 720 44 S 1200 84 1440 30 L1440 80 L0 80 Z"/>
       </svg>
     </header>
 
-    <section class="details" aria-labelledby="details-title">
-      <h2 id="details-title" class="visually-hidden">Where things stand</h2>
-      <dl class="tags">
-        <div class="tag"><dt>Due date</dt><dd>Dec 17</dd></div>
-        <div class="tag"><dt>Right now</dt><dd>Labor started</dd></div>
-        <div class="tag"><dt>Next up</dt><dd>Meeting her</dd></div>
-      </dl>
-    </section>
-
     <section class="story" aria-labelledby="story-title">
       <svg class="holly" aria-hidden="true" focusable="false"><use href="#holly"/></svg>
       <h2 id="story-title">A quick update from us</h2>
-      <p>Lucy has started labor, and we're getting ready to meet our first baby girl.</p>
-      <p>This page will be updated as soon as she's born. Until then, we're taking things one moment at a time, and we are so grateful for all of your love and good wishes.</p>
-      <p>Thank you for your patience. We can't wait to share the news.</p>
+      <p>We're getting ready to meet our first baby girl, and we're taking things one moment at a time. We are so grateful for all of your love and good wishes.</p>
       <p class="signoff script">With love, Lucy &amp; Logan</p>
+    </section>
+
+    <section class="note" aria-labelledby="note-title">
+      <h2 id="note-title">A gentle request</h2>
+      <p>To help us stay focused on Lucy and the baby, we kindly ask that you check this page for news rather than calling or texting us directly. We'll keep it updated as often as we can.</p>
+      <p>Thank you so much for understanding!</p>
     </section>
 
     <section class="stay" aria-labelledby="stay-title">
@@ -117,8 +141,9 @@
         </defs>
         <rect width="100%" height="100%" fill="url(#swag)"/>
       </svg>
-      <h2 id="stay-title">Stay tuned</h2>
+      <h2 id="stay-title">Check back soon</h2>
       <p>This page will be updated as soon as she's born.</p>
+      <button type="button" class="refresh" id="refresh">Refresh for the latest</button>
     </section>
   </main>
 

@@ -1,0 +1,111 @@
+/* Labor-only additions. Layered on top of the shared theme (/styles.css). */
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgb(240 217 154 / 0.7); }
+  70%  { box-shadow: 0 0 0 0.6rem rgb(240 217 154 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(240 217 154 / 0); }
+}
+@keyframes bauble-glow {
+  from { box-shadow: 0 0 0 0.28rem var(--cranberry-deep), inset 0 -1.5rem 2.5rem rgb(0 0 0 / 0.25), 0 1.75rem 3rem -0.5rem rgb(0 0 0 / 0.55), 0 0 1.5rem 0.2rem rgb(240 217 154 / 0.15); }
+  to   { box-shadow: 0 0 0 0.28rem var(--cranberry-deep), inset 0 -1.5rem 2.5rem rgb(0 0 0 / 0.25), 0 1.75rem 3rem -0.5rem rgb(0 0 0 / 0.55), 0 0 3.5rem 0.9rem rgb(240 217 154 / 0.5); }
+}
+
+.pulse {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--gold-soft);
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+/* Status strip across the very top */
+.statusbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.15rem 0.6rem;
+  padding: 0.6rem 1rem;
+  background: var(--cranberry);
+  color: var(--snow);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  border-bottom: 3px solid var(--gold);
+}
+.statusbar__text { color: var(--gold-soft); }
+
+/* Warmer hero so it reads as "something is happening" */
+.hero--labor {
+  background:
+    radial-gradient(60% 45% at 50% 52%, rgb(214 168 75 / 0.22) 0%, transparent 70%),
+    radial-gradient(120% 90% at 50% 0%, #2b6244 0%, var(--pine) 55%, var(--pine-deep) 100%);
+}
+.hero--labor .bauble { animation: bauble-glow 2.6s ease-in-out infinite alternate; }
+.hero--labor .bauble__date { font-size: clamp(3rem, 13vw, 4.25rem); }
+
+/* Latest-update card */
+.update {
+  max-width: 28rem;
+  margin: 1.75rem auto 0;
+  padding: 1.25rem 1.5rem 1.1rem;
+  background: rgb(251 248 241 / 0.96);
+  color: var(--walnut);
+  border: 2px solid var(--gold);
+  border-radius: 1.1rem;
+  box-shadow: 0 0 0 0.25rem rgb(143 36 48 / 0.85), 0 1rem 2rem -0.75rem rgb(0 0 0 / 0.6);
+}
+.update p { margin: 0; }
+.update__kicker { display: flex; align-items: center; justify-content: center; gap: 0.55rem; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cranberry); }
+.update__kicker .pulse { background: var(--cranberry); animation-name: pulse-ring-red; }
+@keyframes pulse-ring-red {
+  0%   { box-shadow: 0 0 0 0 rgb(143 36 48 / 0.6); }
+  70%  { box-shadow: 0 0 0 0.6rem rgb(143 36 48 / 0); }
+  100% { box-shadow: 0 0 0 0 rgb(143 36 48 / 0); }
+}
+.update__headline { margin-top: 0.35rem !important; font-family: var(--serif); font-size: clamp(1.6rem, 5vw, 2rem); font-weight: 700; line-height: 1.2; color: var(--pine); text-wrap: balance; }
+.update__note { margin-top: 0.3rem !important; font-size: 1rem; line-height: 1.5; }
+.update__stamp { margin-top: 0.8rem !important; padding-top: 0.7rem; border-top: 1px dashed var(--gold); font-size: 0.85rem; line-height: 1.5; color: var(--walnut-soft); }
+.update__stamp time { display: block; font-weight: 700; color: var(--walnut); }
+
+/* Gentle request */
+.note {
+  max-width: 34rem;
+  margin: 0 auto 4.5rem;
+  padding: 2rem 1.75rem 1.5rem;
+  background: var(--kraft);
+  border: 2px dashed var(--cranberry);
+  border-radius: 1rem;
+  transform: rotate(-0.6deg);
+}
+.note h2 { margin-bottom: 0.75rem; font-size: clamp(1.5rem, 4vw, 2rem); color: var(--cranberry-deep); }
+.note p { margin: 0 0 0.8rem; }
+.note p:last-child { margin-bottom: 0; font-weight: 700; }
+
+.refresh {
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.75rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--cranberry-deep);
+  background: var(--gold-soft);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.refresh:hover { background: var(--gold); }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse, .hero--labor .bauble { animation: none; }
+}
+
+/* Earlier updates (under the latest-update card) */
+.history { max-width: 28rem; margin: 1.5rem auto 0; text-align: left; }
+.history__title { margin: 0 0 0.5rem; text-align: center; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-soft); }
+.history__list { margin: 0; padding: 0 0 0 1.1rem; list-style: none; border-left: 2px solid rgb(240 217 154 / 0.45); }
+.history__list li { position: relative; padding: 0.15rem 0 0.7rem 0.9rem; font-size: 0.95rem; line-height: 1.45; color: #e7efe3; }
+.history__list li::before { content: ""; position: absolute; left: -1.45rem; top: 0.55rem; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--gold-soft); }
+.history__list time { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: var(--gold-soft); }

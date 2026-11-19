@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Baby Brown · She's here!</title>
-  <meta name="description" content="She's here! Baby, Mom, and Dad are all happy and healthy. We'll share more details soon.">
+  <meta name="description" content="She's here! Baby, Mom, and Dad are all happy and healthy. Her name and photos are coming very soon.">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#1f4d36">
 
@@ -12,7 +12,7 @@
   <meta property="og:site_name" content="Baby Brown">
   <meta property="og:url" content="https://littlebrownfam.com/">
   <meta property="og:title" content="She's here! 💚">
-  <meta property="og:description" content="Baby, Mom, and Dad are all happy and healthy. We'll share more details soon.">
+  <meta property="og:description" content="Baby, Mom, and Dad are all happy and healthy. Her name and photos are coming very soon.">
   <meta property="og:image" content="https://littlebrownfam.com/og-image.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
@@ -22,18 +22,20 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="She's here! 💚">
-  <meta name="twitter:description" content="Baby, Mom, and Dad are all happy and healthy. We'll share more details soon.">
+  <meta name="twitter:description" content="Baby, Mom, and Dad are all happy and healthy. Her name and photos are coming very soon.">
   <meta name="twitter:image" content="https://littlebrownfam.com/og-image.jpg">
   <meta name="twitter:image:alt" content="A red Christmas ornament reading She's here beside the words Baby Brown, welcome to the world.">
   <meta name="twitter:label1" content="Baby, Mom, and Dad">
   <meta name="twitter:data1" content="Happy and healthy 💚">
   <meta name="twitter:label2" content="Next">
-  <meta name="twitter:data2" content="More details soon">
+  <meta name="twitter:data2" content="Name and photos very soon">
 
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta name="apple-mobile-web-app-title" content="Baby Brown">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/born.css">
+  <script src="/app.js" defer></script>
 </head>
 <body>
   <svg width="0" height="0" hidden aria-hidden="true" focusable="false">
@@ -48,8 +50,16 @@
 
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <div class="statusbar" role="status">
+    <span class="statusbar__star" aria-hidden="true">&#9733;</span>
+    <span class="statusbar__label">Status update</span>
+    <span class="statusbar__sep" aria-hidden="true">&middot;</span>
+    <span class="statusbar__text">She's here!</span>
+    <span class="statusbar__star" aria-hidden="true">&#9733;</span>
+  </div>
+
   <main id="main">
-    <header class="hero">
+    <header class="hero hero--born">
       <svg class="lights" aria-hidden="true" focusable="false">
         <defs>
           <pattern id="bulbs" width="96" height="44" patternUnits="userSpaceOnUse">
@@ -67,43 +77,50 @@
         <rect width="100%" height="100%" fill="url(#bulbs)"/>
       </svg>
       <div class="snow" aria-hidden="true"></div>
+      <div class="confetti" aria-hidden="true"></div>
 
       <div class="ornament" aria-hidden="true">
+        <span class="rays"></span>
+        <span class="spark spark--a">&#10022;</span>
+        <span class="spark spark--b">&#10022;</span>
+        <span class="spark spark--c">&#10022;</span>
         <span class="ornament__cap"></span>
         <div class="bauble">
-          <span class="bauble__label">She's</span>
-          <span class="bauble__date">Here!</span>
+          <span class="bauble__label">It's a</span>
+          <span class="bauble__date">Girl!</span>
           <span class="bauble__label">Hello, world</span>
         </div>
       </div>
 
-      <p class="joy">Joy to the world, she's here!</p>
+      <p class="joy joy--big">She's here!</p>
       <p class="intro">Our first baby girl</p>
       <h1>Baby Brown</h1>
       <p class="due">Welcome to the world, little one</p>
-      <p class="countdown">Baby, Mom, and Dad are all happy and healthy.</p>
+      <p class="healthy">Baby, Mom &amp; Dad are all happy and healthy</p>
 
       <svg class="drift" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <path d="M0 42 C 220 92 460 2 720 44 S 1200 84 1440 30 L1440 80 L0 80 Z"/>
       </svg>
     </header>
 
-    <section class="details" aria-labelledby="details-title">
-      <h2 id="details-title" class="visually-hidden">How everyone is doing</h2>
-      <dl class="tags tags--wide">
-        <div class="tag"><dt>Baby</dt><dd>Happy and healthy</dd></div>
-        <div class="tag"><dt>Mom</dt><dd>Happy and healthy</dd></div>
-        <div class="tag"><dt>Dad</dt><dd>Happy and healthy</dd></div>
-      </dl>
-    </section>
-
     <section class="story" aria-labelledby="story-title">
       <svg class="holly" aria-hidden="true" focusable="false"><use href="#holly"/></svg>
       <h2 id="story-title">We are overjoyed!</h2>
-      <p>We are so happy to share that our baby girl has arrived! Baby, Mom, and Dad are all happy and healthy, and we are completely over the moon.</p>
-      <p>We'll share more details as soon as a few important first meetings with family have taken place. Please check back soon!</p>
-      <p>Thank you for all of your love, support, and patience. We feel so lucky.</p>
+      <p>Our baby girl has arrived, and we are completely over the moon. Baby, Mom, and Dad are all happy and healthy.</p>
       <p class="signoff script">With love, Lucy &amp; Logan</p>
+    </section>
+
+    <section class="soon" aria-labelledby="soon-title">
+      <p class="soon__kicker">Very soon</p>
+      <h2 id="soon-title">Her name and photos are coming!</h2>
+      <p>We can't wait to introduce her to you, and we'll be sharing her name and photos very soon. We promise to share as soon as a few important people have met her first.</p>
+      <p>We'd be so grateful for a little more patience. We feel so blessed to have people in our lives who care about this as much as you do.</p>
+    </section>
+
+    <section class="note" aria-labelledby="note-title">
+      <h2 id="note-title">A gentle request</h2>
+      <p>To help us soak up these first moments, we kindly ask that you check this page for updates rather than calling or texting us directly. We'll keep it updated as often as we can.</p>
+      <p>Thank you so much for understanding!</p>
     </section>
 
     <section class="stay" aria-labelledby="stay-title">
@@ -120,7 +137,8 @@
         <rect width="100%" height="100%" fill="url(#swag)"/>
       </svg>
       <h2 id="stay-title">More to come</h2>
-      <p>Check back soon for her full introduction.</p>
+      <p>Check back soon for her name and first photos.</p>
+      <button type="button" class="refresh" id="refresh">Refresh for the latest</button>
     </section>
   </main>
 
